@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px dashed #D7DDE9;
+    cursor: pointer;
+    transition: .5s;
+    padding: 16px;
+
+    &:hover {
+        border: none;
+        background-color: #F7F9FD;
+    }
+
+    .checkAndText {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .text {
+            margin: 0 0 0 16px;
+            font-family: var(--font-inter-tight);
+            font-weight: 400;
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .textChecked {
+            margin: 0 0 0 16px;
+            font-family: var(--font-inter-tight);
+            font-weight: 400;
+            font-size: 16px;
+            color: #0000008A;
+            text-decoration: line-through;
+        }
+
+        .checkBox {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #B0BBD1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkBoxChecked {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #0796D3;
+            background-color: #A0DCF6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
