@@ -6,6 +6,12 @@ import { Modal } from '@/components/Modal';
 import { tasks as taskData } from '@/utils/dates';
 import { useCallback, useEffect, useState } from 'react';
 
+interface TaskProps {
+  id: number
+  name: string
+  completed: boolean
+}
+
 export default function Home() {
 
   const [screenWidth, setScreenWidth] = useState<number>();
@@ -15,13 +21,16 @@ export default function Home() {
   };
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks))
+    const items = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")!) : taskData
+    if (items) {
+      setTasks(items)
+    }
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [])
-
-  const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")!) : taskData);
+  
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
   const [modalCreate, setModalCreate] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
   const [newTask, setNewTask] = useState("");
