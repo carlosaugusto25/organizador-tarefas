@@ -2,4 +2,4 @@
 
 <p>Aplicação desenvolvida com Next e App Router, estilizado com Sass, responsivo e com persistências de dados.</p>
 
-<h3>Link do deploy: https://organizador-tarefas-fox99nnnj-carlos-augustos-projects-8ff68920.vercel.app</h3>
+<h3>Link do deploy: https://organizador-tarefas-ed97.vercel.app</h3>
