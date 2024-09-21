@@ -6,19 +6,21 @@ import { useState } from 'react';
 
 interface CardProps {
     onClickDelete: () => void;
+    name: string;
+    completed: boolean;
+    setCompleted: (val: boolean) => void;
 }
 
-export function Card({onClickDelete}: CardProps) {
+export function Card({onClickDelete, name, completed, setCompleted}: CardProps) {
     
-    const [checked, setChecked] = useState(false);
     
     return(
         <div className={styles.container}>
             <div className={styles.checkAndText}>
-                <div className={checked ? styles.checkBoxChecked : styles.checkBox} onClick={() => setChecked(!checked)}>
-                    {checked && <Image src="/assets/check.png" alt="Check" width={12} height={10} />}
+                <div className={completed ? styles.checkBoxChecked : styles.checkBox} onClick={() => {setCompleted(!completed)}}>
+                    {completed && <Image src="/assets/check.png" alt="Check" width={12} height={10} />}
                 </div>
-                <p className={checked ? styles.textChecked : styles.text}>Lavar as mãos</p>
+                <p className={completed ? styles.textChecked : styles.text}>{name}</p>
             </div>
             <Image onClick={onClickDelete} src="/assets/icon-trash.png" alt="Check" width={18} height={20} />
         </div>

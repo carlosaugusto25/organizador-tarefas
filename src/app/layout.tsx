@@ -3,6 +3,7 @@ import "./globals.scss";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import { Inter_Tight } from 'next/font/google';
+import { days, months } from "@/utils/dates";
 
 const interTight = Inter_Tight({ 
   subsets: ["latin"],
@@ -11,7 +12,7 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "Legaplan",
+  title: "Tarefas",
   description: "Teste Dev Junior",
 };
 
@@ -20,6 +21,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const date = new Date();
+
   return (
     <html lang="pt-br">
       <body className={`${interTight.variable}`}>
@@ -27,7 +31,7 @@ export default function RootLayout({
           <div className={styles.content}>
             <Image src="/assets/logo.png" alt="Logo" width={150} height={36} />
             <h1>Bem-vindo de volta, Marcus</h1>
-            <p>Segunda, 01 de dezembro de 2025</p>
+            <p>{`${days[date.getDay()]}`}, {`${date.getDate()}`} de {`${months[date.getMonth()]}`} de {date.getFullYear()}</p>
           </div>
         </header>
         {children}

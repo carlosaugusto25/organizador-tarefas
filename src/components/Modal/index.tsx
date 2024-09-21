@@ -9,9 +9,10 @@ interface ModalProps {
     typeButton2: "create" | "cancel" | "delete";
     textButton1: string;
     textButton2: string;
+    onClick: () => void;
 }
 
-export function Modal({children, onClose, typeButton1, typeButton2, textButton1, textButton2}: ModalProps) {
+export function Modal({children, onClose, typeButton1, typeButton2, textButton1, textButton2, onClick}: ModalProps) {
     return(
         <div className={styles.modalOverlay}>
             <div className={styles.modalWrapper}>
@@ -24,7 +25,7 @@ export function Modal({children, onClose, typeButton1, typeButton2, textButton1,
                     </div>
                     <div className={styles.modalFooter}>
                         <ButtonComponent text={textButton1} type={typeButton1} onClick={onClose} />
-                        <ButtonComponent text={textButton2} type={typeButton2} onClick={()=>{}} />
+                        <ButtonComponent text={textButton2} type={typeButton2} onClick={onClick} />
                     </div>
                 </div>
             </div>
