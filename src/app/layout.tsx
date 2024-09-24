@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import styles from "./page.module.scss";
-import Image from "next/image";
 import { Inter_Tight } from 'next/font/google';
-import { days, months } from "@/utils/dates";
+import { useEffect, useState } from "react";
 
 const interTight = Inter_Tight({ 
   subsets: ["latin"],
@@ -22,18 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const date = new Date();
-
   return (
     <html lang="pt-br">
       <body className={`${interTight.variable}`}>
-        <header className={styles.header}>
-          <div className={styles.content}>
-            <Image src="/assets/logo.png" alt="Logo" width={150} height={36} />
-            <h1>Bem-vindo de volta, Marcus</h1>
-            <p>{`${days[date.getDay()]}`}, {`${date.getDate()}`} de {`${months[date.getMonth()]}`} de {date.getFullYear()}</p>
-          </div>
-        </header>
         {children}
       </body>
     </html>
