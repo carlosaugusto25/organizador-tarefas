@@ -18,24 +18,21 @@ export default function Home() {
 
   const [screenWidth, setScreenWidth] = useState<number>();
 
-  const date = new Date();
   const [day, setDay] = useState(0);
   const [month, setMonth] = useState(0);
   const [year, setYear] = useState(0);
   const [dateNow, setDateNow] = useState(0);
-
-  useEffect(() => {
-    setDay(date.getDay())
-    setMonth(date.getMonth())
-    setYear(date.getFullYear())
-    setDateNow(date.getDate())
-  }, [])
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
   };
 
   useEffect(() => {
+    const date = new Date();
+    setDay(date.getDay())
+    setMonth(date.getMonth())
+    setYear(date.getFullYear())
+    setDateNow(date.getDate())
     const items = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")!) : taskData
     if (items) {
       setTasks(items)
